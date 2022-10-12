@@ -1,11 +1,17 @@
 package seedu.address.testutil;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import seedu.address.model.application.Application;
 import seedu.address.model.application.Company;
 import seedu.address.model.application.Contact;
 import seedu.address.model.application.Date;
 import seedu.address.model.application.Email;
 import seedu.address.model.application.Position;
+import seedu.address.model.application.interview.Interview;
+import seedu.address.model.util.OldSampleDataUtil;
+import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Application objects.
@@ -24,6 +30,8 @@ public class ApplicationBuilder {
     private Email email;
     private Position position;
 
+    private Set<Interview> interviews;
+
     /**
      * Creates an {@code ApplicationBuilder} with the default details.
      */
@@ -33,6 +41,7 @@ public class ApplicationBuilder {
         date = new Date(DEFAULT_DATE);
         email = new Email(DEFAULT_EMAIL);
         position = new Position(DEFAULT_POSITION);
+        interviews = new HashSet<Interview>();
     }
 
     /**
@@ -44,6 +53,7 @@ public class ApplicationBuilder {
         date = applicationToCopy.getDate();
         email = applicationToCopy.getEmail();
         position = applicationToCopy.getPosition();
+        interviews = applicationToCopy.getInterviews();
     }
 
     /**
@@ -86,8 +96,16 @@ public class ApplicationBuilder {
         return this;
     }
 
+    /**
+     * Parses the {@code interviews} into a {@code Set<Interview>} and set it to the {@code Application} that we are building.
+     */
+    public ApplicationBuilder withInterviews(Interview ... interviews) {
+        this.interviews = SampleDataUtil.getInterviewSet(interviews);
+        return this;
+    }
+
     public Application build() {
-        return new Application(company, contact, email, position, date);
+        return new Application(company, contact, email, position, date, interviews);
     }
 
 }

@@ -152,7 +152,7 @@ public class UniqueApplicationList implements Iterable<Application> {
     }
 
     /**
-     * Returns true if {@code applications} contains only unique applications.
+     * Returns true if {@code applications} contains only unique applications by checking its related interview.
      */
     private boolean interviewsAreUnique(List<Application> applications) {
         for (int i = 0; i < applications.size() - 1; i++) {

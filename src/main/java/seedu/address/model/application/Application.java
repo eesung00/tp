@@ -1,10 +1,10 @@
 package seedu.address.model.application;
 
-import seedu.address.model.application.interview.Interview;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
+
+import seedu.address.model.application.interview.Interview;
 
 /**
  * Represents an Application in the Application book.
@@ -23,7 +23,8 @@ public class Application {
     /**
      * Every field must be present and not null.
      */
-    public Application(Company company, Contact contact, Email email, Position position, Date date, Interview interview) {
+    public Application(Company company, Contact contact, Email email,
+                       Position position, Date date, Interview interview) {
         requireAllNonNull(company, contact, email, position, date, interview);
         this.company = company;
         this.contact = contact;
