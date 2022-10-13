@@ -1,8 +1,15 @@
 package seedu.address.model.application;
 
+<<<<<<< HEAD
+=======
+import seedu.address.model.application.interview.Interview;
+import seedu.address.model.tag.Tag;
+
+>>>>>>> 9d739239ef50245035cc8691cccef30ad87c1d9e
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Objects;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import seedu.address.model.application.interview.Interview;
 
@@ -18,13 +25,12 @@ public class Application {
     private final Email email;
     private final Position position;
     private final Date date;
-    private final Interview interview;
+    private final Optional<Interview> interview;
 
     /**
      * Every field must be present and not null.
      */
-    public Application(Company company, Contact contact, Email email,
-                       Position position, Date date, Interview interview) {
+    public Application(Company company, Contact contact, Email email, Position position, Date date, Optional<Interview> interview) {
         requireAllNonNull(company, contact, email, position, date, interview);
         this.company = company;
         this.contact = contact;
@@ -52,7 +58,7 @@ public class Application {
     public Date getDate() {
         return date;
     }
-    public Interview getInterview() {
+    public Optional<Interview> getInterview() {
         return interview;
     }
 
